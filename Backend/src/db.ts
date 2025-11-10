@@ -12,7 +12,7 @@ const UserSchema = new Schema({
 const ContentSchema = new Schema({
     link:{type:String,require:true},
     type:{type:String,enum:ContentType,require:true},
-    tilte:{type:String,require:true},
+    title:{type:String,require:true},
     userId:{type:ObjectId,ref:"User",require:true},
     tag:[{type:ObjectId,ref:"tag"}]
 })
@@ -22,8 +22,8 @@ const TagsSchema= new Schema({
 })
 
 const LinkSchema = new Schema({
-    hash:{type:String,require:true},
-    userId:{type:ObjectId,ref:"user",require:true}
+    hash:{type:String},
+    userId:{type:ObjectId,ref:"user",require:true,unique:true}
 })
 
 export const User=mongoose.model("User",UserSchema)

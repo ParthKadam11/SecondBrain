@@ -2,8 +2,9 @@ import express from 'express';
 import jwt from "jsonwebtoken";
 import mongoose from 'mongoose';
 import 'dotenv/config';
-import { User, Content } from "./db.js";
+import { User, Content, Link } from "./db.js";
 import { userAuth } from './middleware.js';
+import { random } from "./utils.js";
 const app = express();
 const jwt_secret = String(process.env.JWT_SECRET);
 const port = Number(process.env.PORT ?? 3000);
@@ -126,6 +127,58 @@ app.delete("/api/v1/content", userAuth, async (req, res) => {
         });
         console.log(e);
     }
+});
+app.post("/api/v1/brain/share", userAuth, async (req, res) => {
+    const share = req.body.share;
+    if (share) {
+        const existingLink = await Link.findOne({
+            userId: req.userId,
+        });
+        if (existingLink) {
+            res.json({
+                hash: existingLink.hash,
+            });
+            return;
+        }
+        const hash = random(10);
+        await Link.create({
+            userId: req.userId,
+            hash: hash,
+        });
+    }
+    else {
+        await Link.deleteOne({
+            userId: req.userId,
+        });
+        res.json({
+            message: "Removed Link",
+        });
+    }
+    res.json({
+        message: "Updated Sharable Link",
+    });
+});
+app.post("/api/v1/brain/:sharelink", userAuth, async (req, res) => {
+    const hash = req.params.sharelink;
+    const link = await Link.findOne({
+        hash: hash,
+    });
+    if (!link) {
+        res.status(411).json({
+            message: "Sorry Incorrect Input",
+        });
+        return;
+    }
+    const content = await Content.find({
+        userId: link.userId,
+    });
+    const user = await User.findOne({
+        userId: link.userId,
+    });
+    res.json({
+        username: user?.username,
+        content: content,
+    });
 });
 main();
 //# sourceMappingURL=index.js.map
