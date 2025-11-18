@@ -5,11 +5,13 @@ import 'dotenv/config';
 import { User, Content, Link } from "./db.js";
 import { userAuth } from './middleware.js';
 import { random } from "./utils.js";
+import cors from "cors";
 const app = express();
 const jwt_secret = String(process.env.JWT_SECRET);
 const port = Number(process.env.PORT ?? 3000);
 const mongoURL = process.env.MONGO_URL;
 app.use(express.json());
+app.use(cors());
 async function main() {
     if (!mongoURL) {
         console.error("No MONGO_URL found in environment variables. Set MONGO_URL in .env");
@@ -67,13 +69,13 @@ app.post("/api/v1/signin", async (req, res) => {
     }
 });
 app.post("/api/v1/content", userAuth, async (req, res) => {
-    const { link, type, title } = req.body;
+    const { link, title, type } = req.body;
     try {
         const content = await Content.create({
             link: link,
-            tilte: title,
+            type: type,
+            title: title,
             userId: req.userId,
-            tag: []
         });
         res.json({
             message: "Content Added"
@@ -161,7 +163,7 @@ app.post("/api/v1/brain/share", userAuth, async (req, res) => {
 app.post("/api/v1/brain/:sharelink", userAuth, async (req, res) => {
     const hash = req.params.sharelink;
     const link = await Link.findOne({
-        hash: hash,
+        hash: hash
     });
     if (!link) {
         res.status(411).json({

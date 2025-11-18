@@ -54,7 +54,7 @@ export declare const Content: mongoose.Model<{
     }>;
     type?: unknown;
     link?: unknown;
-    tilte?: unknown;
+    title?: unknown;
     userId?: unknown;
 }, {}, {}, {}, mongoose.Document<unknown, {}, {
     tag: mongoose.Types.DocumentArray<{
@@ -84,7 +84,7 @@ export declare const Content: mongoose.Model<{
     }>;
     type?: unknown;
     link?: unknown;
-    tilte?: unknown;
+    title?: unknown;
     userId?: unknown;
 }, {}, mongoose.DefaultSchemaOptions> & {
     tag: mongoose.Types.DocumentArray<{
@@ -114,7 +114,7 @@ export declare const Content: mongoose.Model<{
     }>;
     type?: unknown;
     link?: unknown;
-    tilte?: unknown;
+    title?: unknown;
     userId?: unknown;
 } & {
     _id: mongoose.Types.ObjectId;
@@ -132,7 +132,7 @@ export declare const Content: mongoose.Model<{
     }[];
     type?: string | null;
     link?: string | null;
-    tilte?: string | null;
+    title?: string | null;
     userId?: {
         prototype?: mongoose.Types.ObjectId | null;
         cacheHexString?: unknown;
@@ -154,7 +154,7 @@ export declare const Content: mongoose.Model<{
     }[];
     type?: string | null;
     link?: string | null;
-    tilte?: string | null;
+    title?: string | null;
     userId?: {
         prototype?: mongoose.Types.ObjectId | null;
         cacheHexString?: unknown;
@@ -176,7 +176,7 @@ export declare const Content: mongoose.Model<{
     }[];
     type?: string | null;
     link?: string | null;
-    tilte?: string | null;
+    title?: string | null;
     userId?: {
         prototype?: mongoose.Types.ObjectId | null;
         cacheHexString?: unknown;

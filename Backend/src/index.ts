@@ -5,13 +5,13 @@ import 'dotenv/config';
 import {User,Content,Link,Tags} from "./db.js"
 import { userAuth } from './middleware.js';
 import {random} from "./utils.js"
-import { link } from 'fs';
+import cors from "cors";
 const app = express();
 const jwt_secret =String(process.env.JWT_SECRET)
 const port = Number(process.env.PORT ?? 3000);
 const mongoURL = process.env.MONGO_URL;
 app.use(express.json())
-
+app.use(cors())
 async function main(){
     if(!mongoURL){
         console.error("No MONGO_URL found in environment variables. Set MONGO_URL in .env");
@@ -68,13 +68,13 @@ app.post("/api/v1/signin",async (req,res)=>{
 })
 
 app.post("/api/v1/content",userAuth,async (req,res)=>{
-    const {link,title,tag} =req.body
+    const {link,title,type} =req.body
     try{
     const content =await Content.create({
         link:link,
-        tilte:title,
+        type:type,
+        title:title,
         userId:req.userId,
-        tag:[tag]
     })
     res.json({
         message:"Content Added"
