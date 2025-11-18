@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme{
+    --color-Main-900: #9381ff; 
+    --color-Main-600: #b8b8ff; 
+    --color-Main-300: #f8f7ff; 
+    --color-Back-300: #edf2f4; 
+    --color-Card-300: #fbf5f3; 
+    --color-Beige-600: #faf9f9;
+    --color-Back-600: #F8F7FF;
+
+}
