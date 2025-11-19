@@ -63,7 +63,7 @@ export default function Dashboard() {
             }}
             variant="secondary"
             text="Share Brain"
-            startIcon={<ShareIcon />}
+            startIcon={<ShareIcon color="Main-900"/>}
           />
         </div>
         <Masonry
