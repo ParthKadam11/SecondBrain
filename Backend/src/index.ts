@@ -12,6 +12,7 @@ const port = Number(process.env.PORT ?? 3000);
 const mongoURL = process.env.MONGO_URL;
 app.use(express.json())
 app.use(cors())
+
 async function main(){
     if(!mongoURL){
         console.error("No MONGO_URL found in environment variables. Set MONGO_URL in .env");
