@@ -1,11 +1,12 @@
 import { DeleteIcon } from "../icons/deleteIcon";
 import { PlusIcon } from "../icons/plusIcon";
 import { ShareIcon } from "../icons/shareIcon";
+import { ArticleThumbnail } from "./ArticleThumbnail";
 
 interface CardProps{
 	title:string,
 	link:string,
-	type:"twitter"|"youtube",
+	type:"twitter"|"youtube"|"article"
 	desc?:string,
 	id: string,
 	onDelete: (id: string) => void
@@ -27,13 +28,9 @@ export function Card({title,link,type,desc, id, onDelete}: CardProps){
 			{type==="youtube" && (
 				<iframe 
 					className="w-full h-48 rounded-lg" 
-					src={`${link.replaceAll("watch","embed").replace("?v=","/")}?rel=0&modestbranding=1&autoplay=0`} 
-					title="YouTube video player" 
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-					referrerPolicy="strict-origin-when-cross-origin" 
-					allowFullScreen
-				></iframe>
+					src={`${link.replaceAll("watch","embed").replace("?v=","/")}?rel=0&modestbranding=1&autoplay=0`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
 			)}
+			{type==="article" &&(<ArticleThumbnail title={link}/>)}
 			{type==="twitter" && <blockquote className="twitter-tweet"><a href={link.replace("x.com","twitter.com")}></a>
 		</blockquote>}	
 		</div>
