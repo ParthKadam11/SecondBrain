@@ -3,6 +3,9 @@
   <span style="vertical-align: middle; margin-left: 10px;">SecondBrain</span>
 </div>
 
+
+
+
 SecondBrain is a full-stack web application that acts as a personal, lightweight inbox for your ideas and content from across the web. Save articles, YouTube videos, and Twitter threads, and let SecondBrain organize them for you in a clean, visual dashboard.
 
 ## Features
