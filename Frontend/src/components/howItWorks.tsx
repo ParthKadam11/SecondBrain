@@ -3,8 +3,8 @@ import { PlusIcon } from "../icons/plusIcon";
 import { FolderIcon } from "../icons/folderIcon";
 export function HowItWorks() {
   return ( <div>
-        <div className="pb-10 flex justify-center text-2xl font-bold">How it Use</div>
-        <div className="flex justify-center items-start w-full gap-30 px-20">
+        <div className="pb-10 flex justify-center text-2xl font-bold">How to Use</div>
+        <div className="pt-8 flex justify-center items-start w-full gap-30 px-20">
         <div className="flex flex-col items-center text-center max-w-xs">
             <div className="flex justify-center mb-4">
             <CopyIcon size="6" color="Main-900" />

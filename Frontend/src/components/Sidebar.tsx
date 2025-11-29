@@ -9,7 +9,7 @@ export function Sidebar(){
     return <div className="w-72 fixed left-0 top-0 bg-Main-900 text-white h-screen overflow-y-auto">
         <div onClick={()=>{
             navigate('/')
-        }} className="flex justify-center items-center pt-4">
+        }} className="flex justify-center items-center pt-4 cursor-pointer">
             <div className="p-5"><Logo size="3"/></div>
             <div className="pr-10 text-2xl font-medium">SecondBrain</div>
         </div>

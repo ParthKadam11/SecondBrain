@@ -18,7 +18,7 @@ export function Signup(){
         })
         navigate("/signin")   
     }
-    return <div className="bg-slate-200 h-screen w-screen flex justify-center items-center">
+    return <div className="bg-Main-900 h-screen w-screen flex justify-center items-center">
         <div className="bg-white rounded-xl min-w-68">
             <div className="flex justify-center p-4">
                 Create a New Account
