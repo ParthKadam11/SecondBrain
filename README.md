@@ -1,4 +1,4 @@
-![plot](Frontend/public/logo.png) # SecondBrain
+<img src="Frontend/public/logo.png" alt="plot" width="200" /> # SecondBrain
 
 SecondBrain is a full-stack web application that acts as a personal, lightweight inbox for your ideas and content from across the web. Save articles, YouTube videos, and Twitter threads, and let SecondBrain organize them for you in a clean, visual dashboard.
 
