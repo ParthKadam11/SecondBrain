@@ -15,8 +15,6 @@ SecondBrain is a full-stack web application that acts as a personal, lightweight
 - **Lazy Loading**: Content cards are lazy-loaded for improved performance, only rendering when they enter the viewport.
 - **RESTful API**: A well-defined backend API for managing users and content.
 
-<video src="Frontend/public/demo.mp4" width="200"></video>
-
 ## Tech Stack
 
 The project is a monorepo containing a separate frontend and backend.
