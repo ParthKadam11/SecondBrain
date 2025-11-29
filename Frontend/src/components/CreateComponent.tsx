@@ -3,7 +3,7 @@ import { CrossIcon } from "../icons/crossIcon";
 import { Button } from "./Button";
 import {Input} from "./Input"
 import axios from "axios";
-import { BACKEND_URL } from "../config";
+import { BACKEND_URL } from "../utils/config";
 interface CreateContentProps {
     Open: boolean;
     onClose: () => void;

@@ -6,7 +6,7 @@ import { ShareIcon } from "../icons/shareIcon";
 import { PlusIcon } from "../icons/plusIcon";
 import { Card } from "../components/Card";
 import { useContent } from "../hooks/useContent";
-import { BACKEND_URL } from "../config";
+import { BACKEND_URL } from "../utils/config";
 import axios from "axios";
 import Masonry from 'react-masonry-css';
 
@@ -28,21 +28,23 @@ export default function Dashboard() {
       <div>
         <Sidebar />
       </div>
-      <div className="p-4 ml-76 h-min-screen  ">
+      <div className="p-4 ml-72 min-h-screen">
         <CreateContent
           Open={modalOpen}
           onClose={() => {
             setModalOpen(false);
           }}
         />
-        <div className="flex pb-6 p-4 gap-4 justify-end ">
+        <div className="flex pb-6 p-4 gap-4 justify-between items-center flex-wrap">
+          <div className="font-extrabold text-2xl text-Main-900">Content</div>
+          <div className="flex gap-4">
           <Button
             variant="primary"
             text="Add Content"
             onClick={() => {
               setModalOpen(true);
             }}
-            startIcon={<PlusIcon />}
+            startIcon={<PlusIcon color="white" size="1.3"/>}
           />
           <Button
             onClick={async () => {
@@ -65,6 +67,7 @@ export default function Dashboard() {
             text="Share Brain"
             startIcon={<ShareIcon color="Main-900"/>}
           />
+          </div>
         </div>
         <Masonry
           breakpointCols={breakpointCols}

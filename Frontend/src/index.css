@@ -10,3 +10,21 @@
     --color-Back-600: #F8F7FF;
 
 }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#root {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+

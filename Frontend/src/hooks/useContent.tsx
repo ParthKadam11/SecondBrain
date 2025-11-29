@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
-import { BACKEND_URL } from "../config";
+import { BACKEND_URL } from "../utils/config";
 import axios from "axios";
 
 export function useContent(){
