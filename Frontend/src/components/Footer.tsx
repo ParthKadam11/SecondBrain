@@ -10,11 +10,10 @@ export function Footer(){
         <nav className="flex items-center text-md gap-10">
           <a href="https://www.linkedin.com/in/parthganpatkadam/" target="_blank" className="hover:underline">Contact</a>
           <a href="#" className="hover:underline">Features</a>
-          <a href="/signup" className="hover:underline">Demo</a>
           <a href="https://github.com/ParthKadam11/SecondBrain" target="_blank" className="hover:underline">GitHub</a>
         </nav>
       </div>
-          <a href="https://www.linkedin.com/in/parthganpatkadam/" target="_blank" className="font-semibold p-4 pt-8 flex justify-center">~ Built by Parth Kadam</a>
+          <a href="https://www.linkedin.com/in/parthganpatkadam/" target="_blank" className="font-semibold p-4 flex justify-center">Built by Parth Kadam</a>
     </footer>
   );
 }
