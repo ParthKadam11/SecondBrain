@@ -5,6 +5,10 @@
 
 SecondBrain is a full-stack web application that acts as a personal, lightweight inbox for your ideas and content from across the web. Save articles, YouTube videos, and Twitter threads, and let SecondBrain organize them for you in a clean, visual dashboard.
 
+The project is built to practice real-world full-stack development, focusing on authentication, database design, API integration, and deployment.
+
+Live demo: https://secondbrain.software
+
 ## Features
 
 - **Multi-Content Support**: Save and organize content from various sources, including articles, YouTube videos, and Twitter posts.
