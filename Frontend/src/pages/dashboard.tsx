@@ -59,7 +59,7 @@ export default function Dashboard() {
                   },
                 }
               );
-              const ShareURL = `http://localhost:5173/share:${response.data.hash}`;
+              const ShareURL = `${BACKEND_URL}/share:${response.data.hash}`;
               navigator.clipboard.writeText(ShareURL);
               alert("Link Copied to clipboard");
             }}
