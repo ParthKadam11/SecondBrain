@@ -18,7 +18,7 @@ export default function LandingPage(){
                     <div className="text-white text-lg">FAQ</div>
                     <div className="text-white text-lg">How It Works</div>
                     <div className="w-20">
-                        <Button fullWidth variant="secondary" text="Github" onClick={() => navigate("/signup")}/>
+                        <Button fullWidth variant="secondary" text="Github" onClick={() => window.open("https://github.com/ParthKadam11/SecondBrain","_blank")}/>
                     </div>
                 </div>
             </div>
