@@ -6,6 +6,7 @@ import {User,Content,Link,Tags} from "./db.js"
 import { userAuth } from './middleware.js';
 import {random} from "./utils.js"
 import cors from "cors";
+import bcrypt from "bcrypt";
 const app = express();
 const jwt_secret =String(process.env.JWT_SECRET)
 const port = Number(process.env.PORT ?? 3000);
@@ -34,9 +35,10 @@ app.post("/api/v1/signup", async (req,res)=>{
     try{
         const {username,password}=req.body
         if(!username || !password) return res.status(400).json({message:'username and password required'})
+        const hashed_password= await bcrypt.hash(password,5)
         const user = await User.create({
             username:username,
-            password:password
+            password:hashed_password
         })
         return res.status(201).json({
             message:`Signed Up with username ${username}`,
@@ -53,18 +55,28 @@ app.post("/api/v1/signup", async (req,res)=>{
 
 app.post("/api/v1/signin",async (req,res)=>{
     const {username,password} =req.body
-    const existingUser = await User.findOne({
-        username:username,
-        password:password
+    const Users = await User.findOne({
+        username:username
     })
-    if(existingUser){
-        const token =jwt.sign({
-            id:existingUser._id},jwt_secret)
-        res.json({"token":token})
-    }else{
+    if(!Users){
+      return res.json({message:"No User Found. SignUp!"})
+    }
+    if (Users.password) {
+        const existingPassword = await bcrypt.compare(password, Users.password);
+        if (existingPassword) {
+            const token = jwt.sign({
+                id: Users._id
+            }, jwt_secret);
+            res.json({ "token": token });
+        } else {
+            res.status(403).json({
+                message: "Incorrect Credentials"
+            });
+        }
+    } else {
         res.status(403).json({
-            message:"Incorrect Credentials"
-        })
+            message: "Password Not Found SignUp!"
+        });
     }
 })
 
