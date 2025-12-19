@@ -22,7 +22,7 @@ export function useContent(){
             });
             refresh();
         } catch (error) {
-            console.error("Error deleting content:", error);
+            console.error("Error could not Delete :", error);
         }
     }
     

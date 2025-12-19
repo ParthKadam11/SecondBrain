@@ -7,9 +7,8 @@ const jwt_secret = process.env.JWT_SECRET
 export const userAuth =(req:Request,res:Response,next:NextFunction)=>{
     const header=req.headers["authorization"]
     const decoded = jwt.verify(header as string,jwt_secret as string )   
-    if(decoded){
-        //@ts-ignore
-        req.userId =decoded.id
+    if(decoded && typeof decoded === 'object'){
+        req.userId =(decoded as jwt.JwtPayload).id
         next()
     }else{
         res.status(403).json({
